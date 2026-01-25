@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout('Manage', ~{::section})}">
+<section class="manage-shell">
+  <div class="manage-hero reveal">
+    <div>
+      <div class="home-eyebrow">Configuration</div>
+      <h1 class="manage-title">Manage monitored APIs.</h1>
+      <p class="manage-description">
+        Create and update endpoints that drive the dashboard.
+      </p>
+    </div>
+    <div class="manage-home-actions">
+      <a class="app-button app-button--ghost" th:href="@{/}" title="Return to the dashboard">Back to dashboard</a>
+    </div>
+  </div>
+
+  <div class="manage-grid reveal reveal-delay-1">
+    <div class="health-manager-card" data-api-manager>
+      <div class="health-manager-header">
+        <div class="health-manager-title">API Manager</div>
+        <button type="button" class="app-button app-button--ghost app-button--compact" data-api-new title="Create a new API definition">New API</button>
+      </div>
+      <p class="health-manager-description" data-api-manager-description>
+        Create, update, or remove APIs that get checked on the dashboard.
+      </p>
+      <div class="health-manager-list" data-api-list data-api-manager-list>
+        
+      </div>
+      <form class="health-manager-form" data-api-form data-api-manager-form>
+        <input type="hidden" id="api-id" name="api-id" data-api-id/>
+        <label class="health-manager-field">
+          <span>Name</span>
+          <input class="health-manager-input" type="text" placeholder="Payments API"
+                 id="api-name" name="api-name" data-api-name required/>
+        </label>
+        <label class="health-manager-field">
+          <span>URL</span>
+          <input class="health-manager-input" type="url" placeholder="https://api.example.com/health"
+                 id="api-url" name="api-url" data-api-url required/>
+        </label>
+        <div class="health-manager-row">
+          <label class="health-manager-field">
+            <span>Success min</span>
+            <input class="health-manager-input" type="number" min="100" max="599" placeholder="200"
+                   id="api-min" name="api-min" data-api-min/>
+          </label>
+          <label class="health-manager-field">
+            <span>Success max</span>
+            <input class="health-manager-input" type="number" min="100" max="599" placeholder="299"
+                   id="api-max" name="api-max" data-api-max/>
+          </label>
+          <label class="health-manager-field">
+            <span>Latency SLA (ms)</span>
+            <input class="health-manager-input" type="number" min="1" step="1" placeholder="1000"
+                   id="api-latency" name="api-latency" data-api-latency/>
+          </label>
+        </div>
+        <div class="health-manager-actions">
+          <button type="submit" class="app-button app-button--primary" data-api-save title="Save API definition">Save API</button>
+          <button type="button" class="app-button app-button--ghost" data-api-clear title="Clear the form">Clear</button>
+          <span class="health-manager-message" data-api-message aria-live="polite"></span>
+        </div>
+      </form>
+    </div>
+
+    <div class="health-sim-card">
+      <div class="health-sim-header">
+        <div class="health-sim-title">Simulated API</div>
+        <div class="manage-toggle">
+          <label class="manage-switch">
+            <input type="checkbox" id="sim-enabled" name="sim-enabled" data-sim-enabled title="Toggle simulated API on or off"/>
+            <span class="manage-slider"></span>
+          </label>
+        </div>
+      </div>
+      <div class="manage-status-note" data-sim-toggle-message></div>
+      <div class="health-sim-body" data-sim-body>
+        <p class="health-sim-description">
+          Force the demo endpoint to respond with specific outcomes and latency.
+        </p>
+        <div class="health-sim-form">
+          <label class="health-sim-field">
+            <span>Mode</span>
+            <select class="health-sim-input" id="sim-mode" name="sim-mode" data-sim-status>
+              <option value="UP">Operational</option>
+              <option value="DEGRADED">Degraded</option>
+              <option value="DOWN">Down</option>
+              <option value="ERROR">Error</option>
+            </select>
+          </label>
+          <label class="health-sim-field">
+            <span>Latency (ms) <strong class="health-sim-value" data-sim-latency-value>240</strong></span>
+            <input class="health-sim-range" type="range" min="50" max="4000" step="50" value="240"
+                   id="sim-latency" name="sim-latency" data-sim-latency/>
+          </label>
+          <label class="health-sim-field">
+            <span>Status code</span>
+            <input class="health-sim-input" type="number" min="100" max="599" placeholder="Optional"
+                   id="sim-code" name="sim-code" data-sim-code/>
+          </label>
+        </div>
+        <div class="health-sim-actions">
+          <button type="button" class="app-button app-button--primary" data-sim-apply title="Apply simulation settings">Apply simulation</button>
+          <button type="button" class="app-button app-button--ghost" data-sim-reset title="Reset simulation to defaults">Reset</button>
+          <span class="health-sim-message" data-sim-message aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</html>

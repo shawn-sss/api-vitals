@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout('About', ~{::section})}">
+<section class="about-shell">
+  <div class="about-hero reveal">
+    <div>
+      <div class="home-eyebrow">How it works</div>
+      <h1>Simple, readable health checks.</h1>
+      <p>
+        API Vitals runs lightweight GET requests from the server and reports status and latency.
+        No scheduling, no alerts, just a clean baseline to build from.
+      </p>
+    </div>
+      <div class="about-hero-card">
+      <div class="about-hero-title">Included today</div>
+      <ul class="about-hero-list">
+        <li>Httpbin GET</li>
+        <li>Postman Echo GET</li>
+        <li>JSONPlaceholder</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="about-panels">
+    <div class="about-panel reveal reveal-delay-1">
+      <div class="about-panel-title">Endpoint list</div>
+      <div>
+        Update checks in <code class="app-code">HealthCheckService</code>.
+      </div>
+    </div>
+    <div class="about-panel reveal reveal-delay-2">
+      <div class="about-panel-title">API response</div>
+      <div>
+        <code class="app-code">/api/checks</code> returns status, code, latency, and the last checked time.
+      </div>
+    </div>
+    <div class="about-panel reveal reveal-delay-3">
+      <div class="about-panel-title">UI refresh</div>
+      <div>
+        The home page fetches results on load or button press.
+      </div>
+    </div>
+  </div>
+
+  <div class="about-cta reveal reveal-delay-4">
+    <a th:href="@{/}" class="app-link app-link--ghost" title="Return to the dashboard">
+      <span aria-hidden="true">&larr;</span>
+      <span>Back home</span>
+    </a>
+  </div>
+</section>
+</html>

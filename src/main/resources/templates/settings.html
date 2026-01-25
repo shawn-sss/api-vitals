@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout('Settings', ~{::section})}">
+<section class="manage-shell">
+  <div class="manage-hero reveal">
+    <div>
+      <div class="home-eyebrow">Settings</div>
+      <h1 class="manage-title">System settings.</h1>
+      <p class="manage-description">
+        Manage data retention and reset tools for the dashboard.
+      </p>
+    </div>
+    <div class="manage-home-actions">
+      <a class="app-button app-button--ghost" th:href="@{/}" title="Return to the dashboard">Back to dashboard</a>
+    </div>
+  </div>
+
+  <div class="settings-grid reveal reveal-delay-1">
+    <div class="manage-danger-panel">
+      <div class="manage-danger-header">
+        <div class="manage-danger-title">Data tools</div>
+        <div class="manage-danger-note">Clear stored history or reset app data.</div>
+      </div>
+      <div class="manage-danger-actions">
+        <button type="button" class="app-button app-button--ghost" data-health-reset title="Clear local history">Clear history</button>
+        <button type="button" class="app-button app-button--ghost" data-nuke-all title="Reset all app data">Reset App</button>
+      </div>
+    </div>
+  </div>
+</section>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(pageTitle, content)">
+<head>
+  <meta charset="UTF-8"/>
+  
+  <meta name="darkreader-lock"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+
+  
+  <title th:text="${pageTitle} + ' - API Vitals'">API Vitals</title>
+  <meta name="title" th:content="${pageTitle} + ' - API Vitals'"/>
+  <meta name="description" content="Real-time API health monitoring and performance tracking. Monitor latency trends and system status across all your critical APIs."/>
+  <meta name="keywords" content="API monitoring, health check, performance tracking, latency monitoring, API status, uptime monitoring"/>
+  <meta name="author" content="API Vitals"/>
+  <meta name="application-name" content="API Vitals"/>
+  
+  
+  <meta name="robots" content="index, follow"/>
+  
+  
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" th:content="@{/}"/>
+  <meta property="og:title" th:content="${pageTitle} + ' - API Vitals'"/>
+  <meta property="og:description" content="Real-time API health monitoring and performance tracking. Monitor latency trends and system status across all your critical APIs."/>
+  <meta property="og:image" content="/og-image.svg"/>
+  <meta property="og:site_name" content="API Vitals"/>
+  
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:url" th:content="@{/}"/>
+  <meta name="twitter:title" th:content="${pageTitle} + ' - API Vitals'"/>
+  <meta name="twitter:description" content="Real-time API health monitoring and performance tracking. Monitor latency trends and system status across all your critical APIs."/>
+  <meta name="twitter:image" content="/og-image.svg"/>
+  
+  
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico.svg"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png.svg"/>
+  <link rel="icon" type="image/svg+xml" sizes="32x32" href="/favicon-32x32.png.svg"/>
+  <link rel="icon" type="image/svg+xml" sizes="16x16" href="/favicon-16x16.png.svg"/>
+  
+  
+  <meta name="theme-color" content="#3b82f6"/>
+
+  <link rel="stylesheet" th:href="@{/css/app.css(v=1)}"/>
+</head>
+<body class="app-shell">
+
+  <div class="app-bg-grid"></div>
+  <div class="app-bg-glow" aria-hidden="true">
+    <div class="app-glow-blob app-glow-brand"></div>
+    <div class="app-glow-blob app-glow-emerald"></div>
+  </div>
+
+  <main class="app-main">
+    <div class="app-layout-container">
+      <div th:replace="${content}">
+        
+      </div>
+    </div>
+  </main>
+
+  <script th:src="@{/js/app.js(v=1)}" defer></script>
+</body>
+</html>

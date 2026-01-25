@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <!-- Icon part - heartbeat pulse -->
+  <g stroke="#ee5e3a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 5 30 L 15 30 L 20 18 L 28 42 L 36 20 L 42 34 L 47 30 L 55 30"/>
+  </g>
+  
+  <!-- Text "API Vitals" -->
+  <text x="65" y="40" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#1e293b">
+    API Vitals
+  </text>
+</svg>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout('Home', ~{::section})}">
+<section class="health-shell">
+  <div class="health-hero health-hero--chart">
+    <div class="health-hero-header reveal">
+      <div class="health-hero-intro">
+        <div class="home-logo-large">
+          <img th:src="@{/logo.svg}" alt="API Vitals" width="280" height="84"/>
+        </div>
+        <p class="home-description">
+          Track response times and system health across your endpoints.
+        </p>
+        <p class="home-description">
+          Monitor performance metrics and catch issues early.
+        </p>
+      </div>
+      <div class="health-hero-actions-card">
+        <div class="health-hero-actions-title">Runs every 60 seconds</div>
+        <div class="health-hero-actions">
+          <button type="button" class="app-button app-button--primary" data-health-refresh title="Run health checks now">Run checks</button>
+          <a class="app-button app-button--ghost" th:href="@{/manage}" title="Manage monitored endpoints">Manage endpoints</a>
+          <a class="app-button app-button--ghost" th:href="@{/settings}" title="Open settings">Settings</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="health-hero-body">
+      <div class="health-chart-shell reveal reveal-delay-1">
+        <div class="health-section-header health-section-header--chart">
+          <div>
+            <div class="health-section-title">Latency trend</div>
+            <div class="health-section-subtitle">Per API response time</div>
+          </div>
+          <div class="health-chart-controls">
+            <label for="chart-window">Max chart window</label>
+            <input class="health-manager-input health-chart-input" type="number" min="1" inputmode="numeric"
+                   placeholder="All" id="chart-window" name="chart-window" data-health-chart-window/>
+          </div>
+        </div>
+        <div class="health-chart-card">
+          <div class="health-chart-header">
+            <div class="health-chart-legend" data-health-chart-legend>
+              
+            </div>
+          </div>
+          <canvas class="health-chart" data-health-chart width="760" height="260"></canvas>
+          <div class="health-chart-tooltip" data-health-chart-tooltip>--</div>
+        </div>
+      </div>
+      <div class="health-hero-summary reveal reveal-delay-2">
+        <div class="health-hero-label">Current status</div>
+        <div class="health-hero-value">
+          <span class="health-summary-dot" data-health-summary-dot aria-hidden="true"></span>
+          <span data-health-summary aria-live="polite">Loading...</span>
+        </div>
+        <div class="health-hero-meta">
+          Last checked <span data-health-timestamp th:text="${now}">2026-01-18 12:34:00</span>
+        </div>
+        <div class="health-banner" data-health-banner>
+          <div class="health-banner-title" data-health-banner-title>Checking systems...</div>
+          <div class="health-banner-subtitle" data-health-banner-subtitle>We review critical APIs used by the business.</div>
+        </div>
+        <div class="health-kpis">
+          <div class="health-kpi-card">
+            <div class="health-kpi-label">Total APIs</div>
+            <div class="health-kpi-value" data-health-total>--</div>
+          </div>
+          <div class="health-kpi-card">
+            <div class="health-kpi-label">Operational</div>
+            <div class="health-kpi-value" data-health-up>--</div>
+          </div>
+          <div class="health-kpi-card">
+            <div class="health-kpi-label">Degraded</div>
+            <div class="health-kpi-value" data-health-degraded>--</div>
+          </div>
+          <div class="health-kpi-card">
+            <div class="health-kpi-label">Down</div>
+            <div class="health-kpi-value" data-health-down>--</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="health-secondary reveal reveal-delay-3">
+    <div class="health-list-shell">
+      <div class="health-section-header">
+        <div>
+          <div class="health-section-title" data-systems-overview-title>Systems overview</div>
+          <div class="health-section-subtitle" data-systems-overview-subtitle>Latest snapshot across every monitored endpoint.</div>
+        </div>
+        <button type="button" class="app-button app-button--primary app-button--compact" data-show-latest-button style="display: none;" title="Return to the latest snapshot">Show Latest</button>
+      </div>
+      <div class="health-list">
+        <div class="health-list-header">
+          <div>System</div>
+          <div>Status</div>
+          <div>Latency</div>
+          <div>SLA</div>
+          <div>Response</div>
+          <div>Checked</div>
+        </div>
+        <div class="health-list-body" data-health-list>
+          
+        </div>
+      </div>
+    </div>
+    <div class="health-secondary-left">
+      <div class="health-history-card" id="recent-checks">
+        <div class="health-history-header">
+          <div class="health-history-heading">
+            <div class="health-history-title">Recent checks</div>
+          </div>
+          <div class="health-history-actions">
+        <button type="button" class="health-history-toggle" data-health-history-toggle title="Toggle full history list">Show all history</button>
+      </div>
+    </div>
+        <div class="health-history-subtitle" data-health-history-count>Showing 0 of 0</div>
+        <div class="health-history-list" data-health-history>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="response-modal" data-response-modal>
+    <div class="response-modal-overlay" data-response-modal-close></div>
+    <div class="response-modal-content">
+      <div class="response-modal-header">
+        <h2 class="response-modal-title">Response Details</h2>
+        <button type="button" class="response-modal-close-btn" data-response-modal-close aria-label="Close" title="Close response details">&times;</button>
+      </div>
+      <div class="response-modal-body" data-response-modal-body>
+        
+      </div>
+    </div>
+  </div>
+
+</section>
+</html>

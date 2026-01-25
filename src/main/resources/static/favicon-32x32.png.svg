@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="#ee5e3a"/>
+  
+  <!-- Simplified heartbeat line for small icon -->
+  <path d="M 6 16 L 10 16 L 12 10 L 16 22 L 20 12 L 22 18 L 26 16" 
+        stroke="#ffffff" stroke-width="2.5" fill="none" 
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
