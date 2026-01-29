@@ -1,18 +1,59 @@
-target/
+# OS: Linux
+.Trash-*
+.nfs*
+
+# OS: Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.stackdump
+
+# OS: macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Build: Java / Maven
+/target/
 *.class
 *.jar
 *.war
 *.ear
+dependency-reduced-pom.xml
+.buildNumber
+release.properties
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+.mvn/timing.properties
+
+# Logs
 *.log
 hs_err_pid*
-.DS_Store
-Thumbs.db
-Desktop.ini
-.vs/
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
-*.VC.db
-*.VC.VC.opendb
+*.pid
+
+# Secrets
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.jks
+*.keystore
+
+# IDE: VS Code
 .vscode/
+.history/
+
+# Editor backups
+*.swp
+*.swo
+*~
+\#*\#
+.\#*
