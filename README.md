@@ -24,7 +24,11 @@
 - This repo includes the **Maven Wrapper** (no separate Maven install required)
 
 ### 2) Run the app
-**Windows**
-```bat
-start.bat
+(Windows)
+```batch
+./start.bat
+```
+(Linux)
+```bash
+./start.sh
 ```
